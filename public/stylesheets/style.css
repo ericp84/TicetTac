@@ -1,8 +1,198 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+
+/* body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(90deg, #ffffff -10%, #66a6ff 70%);
+  color: whitesmoke;
 }
 
-a {
-  color: #00B7FF;
+.headerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.842);
+  color: black
+}
+
+.row {
+  width: 100%;
+}
+
+a.login{
+  color: red;
+  font-size: 18px;
+  font-weight: bolder;
+}
+a.lastrip {
+  color: black;
+  font-size: 16px;
+  font-weight: bolder;
+}
+
+.landmark{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mainTitle {
+  margin-bottom: 1em;
+  color: white;
+  font-size: 6vh;
+} */
+
+
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Montserrat', sans-serif;
+  background-image: linear-gradient(90deg, #ffffff -10%, #66a6ff 70%);
+  color: black;
+}
+
+.headerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  width: 100%;
+}
+
+.forSign {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.forTables {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainTitle {
+  margin-bottom: 1em;
+  color: white;
+  font-size: 6vh;
+}
+
+.login {
+  margin-right: 15px;
+  color: red;
+} 
+
+.siteName {
+  color: black;
+  font-weight: bold;
+}
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar {
+  background-color: rgba(255, 255, 255, 0.842);
+  color: black
+}
+.resultDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btnTxt {
+  color: white;
+}
+
+.btnTxt:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  margin: 0 auto;
+  width: 80%;
+  padding-top: 3em;
+  padding-bottom: 4em;
+  padding-left: 2em;
+  padding-right: 2em;
+
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.form-control {
+  box-sizing: content-box;
+}
+
+.landmark{
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.landmark>img {
+  height: 40vh;
+}
+
+.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.price {
+  font-weight: bold;
+  font-size: 17px;
+  margin-right: 0.5em;
+}
+
+ul, span {
+  color: black;
+}
+
+.btnnn{
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.tableTitle{
+  border-bottom: 2px black;
+}
+
+h4{
+  color: white;
 }

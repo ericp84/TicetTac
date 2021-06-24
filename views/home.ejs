@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,600&display=swap" rel="stylesheet">
-
-    <title>Document</title>
+    <title>TicetTac</title>
 </head>
 <body>
     <nav class="header navbar">
@@ -35,17 +34,35 @@
 
     <div class="container">
         <div class="row forTables">
-          <div class="mainTitle my-5">Oops no train avalaible...</div>
+          <div class="mainTitle"></div>
+            <div class="col-12 col-lg-12 mt-5">
+                <h2>One-way ticket :</h2>
+              <form action="/search" method="POST">
+                <div class="input-group mb-3">
+                  <input name="from" type="text" class="form-control" placeholder="From: Paris, Marseille..." aria-label="new city name" required>
+                  <input name="to" type="text" class="form-control" placeholder="To: Lille, Nantes..." aria-label="new city name" required>
+                  <input name="on" type="date" class="form-control" aria-label="new city name" required>
+                  <div class="input-group-append">
+                    <button class="btn btn-danger" type="submit" id="button-addon2">Go</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="col-12 col-lg-6">
+            </div>
+  
         </div>
 
-        <div>
-            <a href="/home?"><button class="btn btn-danger" type="submit">Home</button></a>
-        </div>
-    </div> 
+      </div>
+      <div class="landmark">
+      <img src="./images/landmark.png">
+      </div>
+    
+
+
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/7f93ca795e.js" crossorigin="anonymous"></script>
-
 </body>
 </html>

@@ -11,7 +11,7 @@ var options = {
  };
 
 // --------------------- BDD -----------------------------------------------------
-mongoose.connect('mongodb+srv://admin:azerty16@cluster0.306p7.mongodb.net/TiceTac?retryWrites=true&w=majority',
+mongoose.connect('mongodb+srv://admin:azerty16@cluster0.306p7.mongodb.net/Ticketac?retryWrites=true&w=majority',
    options,
    function(err) {
     if (err) {
@@ -39,7 +39,19 @@ var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('login', { title: 'Express' });
+});
+
+router.get('/home', function(req, res, next) {
+  res.render('home', { title: 'Express' });
+});
+
+router.get('/error', function(req, res, next) {
+  res.redirect('/home', { title: 'Express' });
+});
+
+router.get('/results', function(req, res, next) {
+  res.render('results', { title: 'Express' });
 });
 
 
