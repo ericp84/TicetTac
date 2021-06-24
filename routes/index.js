@@ -30,7 +30,7 @@ var journeySchema = mongoose.Schema({
   price: Number,
 });
 
-var journeyModel = mongoose.model('journey', journeySchema);
+var journeyModel = mongoose.model('trips', journeySchema);
 
 var city = ["Paris","Marseille","Nantes","Lyon","Rennes","Melun","Bordeaux","Lille"]
 var date = ["2018-11-20","2018-11-21","2018-11-22","2018-11-23","2018-11-24"]
@@ -50,8 +50,14 @@ router.get('/error', function(req, res, next) {
   res.redirect('/home', { title: 'Express' });
 });
 
-router.get('/results', function(req, res, next) {
-  res.render('results', { title: 'Express' });
+router.post('/results', async function(req, res, next) {
+  var desti = await journeyModel.find({
+    departure: req.body.from,
+    arrival: req.body.to,
+    date: req.body.on,
+  })
+  console.log("destination", desti)
+  res.render('results', {search: desti});
 });
 
 
