@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var session = require('express-session')
 const mongoose = require('mongoose');
+var userModel = require('../models/users')
 
 // useNewUrlParser ;)
 var options = {
@@ -42,13 +43,51 @@ router.get('/', function(req, res, next) {
   res.render('login', { title: 'Express' });
 });
 
+router.post('/signup', async function(req, res, next) {
+  var signup = new userModel ({
+    lastName: req.body.uplastname,            
+    firstName: req.body.upfirstname,
+    email: req.body.upmail,
+    password: req.body.uppas,
+  })
+  await signup.save();
+  req.session.signup = {
+    name: signup.email,
+    id: signup.id
+  }
+  console.log('REQ UP', req.session.signup)
+  res.redirect('/home')
+})
+
+router.post('/signin', async function(req, res, next) {
+  var signin = await userModel.findOne({
+    email: req.body.inmail,
+    password: req.body.inpas,
+  })
+  // console.log("SIGNIN", req.body.inmail)
+  // console.log("SIGNIN", req.body.inpas)
+  req.session.signin = {
+    name: signin.email,
+    id: signin.id
+  }
+  console.log("req//", req.session.signin)
+  if(signin == null) {
+    res.redirect('/')
+  } else {
+     res.redirect('/home')
+  }
+  
+ 
+})
+
 router.get('/home', function(req, res, next) {
+
   res.render('home', { title: 'Express' });
 });
 
-router.get('/error', function(req, res, next) {
-  res.redirect('/home', { title: 'Express' });
-});
+// router.get('/error', function(req, res, next) {
+//   res.redirect('/home');
+// });
 
 router.post('/results', async function(req, res, next) {
   var desti = await journeyModel.find({
@@ -56,10 +95,22 @@ router.post('/results', async function(req, res, next) {
     arrival: req.body.to,
     date: req.body.on,
   })
-  console.log("destination", desti)
-  res.render('results', {search: desti});
+  console.log("dest//", desti)
+  console.log("dest", req.body.from)
+  console.log("dest", req.body.to)
+  console.log("dest", req.body.on)
+  res.render('results', {desti});
 });
 
+router.get('/trips', async function(req, res, next) {
+  var trip = await journeyModel.findOne({
+    _id: req.query.id
+  })
+  req.session.order = []
+  req.session.order.push(trip)
+  console.log("TRIP//", req.session.order)
+  res.render('trips', {bills: req.session.order});
+});
 
 // Remplissage de la base de donnée, une fois suffit
 router.get('/save', async function(req, res, next) {
@@ -109,7 +160,6 @@ router.get('/result', function(req, res, next) {
     )
 
   }
-
 
   res.render('index', { title: 'Express' });
 });

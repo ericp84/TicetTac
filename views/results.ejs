@@ -16,19 +16,18 @@
           <div class="mainTitle">Search Results:</div>
         </div>
             <div class="col-12 offset-lg-12 col-lg-12">
-              <!--liste les résultats section-->
               
               <ul class="list-group resultsUl">
-  
-                <%for(var i=0;i<search.length;i++){%>
-                <li class="list-group-item resultDiv">
-                  <div><span><%= search[i].departure %></span>
-                  <i class="fas fa-long-arrow-alt-right"></i>
-                  <span><%= search[i].arrival %></span></div>
-                  <span>Train departure at: <%= search[i].departureTime %></span>
+
+                <%for(var i=0;i<desti.length;i++){%>
+                <li class="list-group-item resultDiv mt-3">
+                  <div><span><%= desti[i].departure %></span>
+                  <i class="fas fa-chevron-right"></i>
+                  <span><%= desti[i].arrival %></span></div>
+                  <span>Train departure at: <%= desti[i].departureTime %></span>
                   <div>
-                    <span class="price"><%= search[i].price %>€</span>
-                    <a class="btnTxt" href="/orders?id=<%= search[i]._id%>"><button class="btn btn-danger">Go</button></a>
+                    <span class="price"><%= desti[i].price %>€</span>
+                    <a class="btnTxt" href="/trips?id=<%= desti[i]._id%>"><button name="buy" class="btn btn-danger">Go</button></a>
                   </div>
                 </li>
                 <%}%>
